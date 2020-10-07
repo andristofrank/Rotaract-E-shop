@@ -1,0 +1,13 @@
+<p>Image</p>
+<div class="custom-file image-input-wrap">
+  <button (click)="imageUpload()" class="image-input"></button>
+  <div class="img-space">
+    <ng-container *ngIf="isImageSaved; else elseTemplate">
+      <img [src]="ImageBased64"/>
+    </ng-container>
+    <ng-template #elseTemplate>
+      <img src="assets/default-ui-image-placeholder-wireframes-260nw-1037719192.png"/>
+    </ng-template>
+  </div>
+</div>
+<a class="btn btn-outline-danger" (click)="removeImage()" *ngIf="isImageSaved">Remove</a>

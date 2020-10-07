@@ -1,0 +1,109 @@
+<div>
+  <div class="d-flex flex-row justify-content-center">
+    <div class="form-container">
+      <div>
+        <img src="assets/rotaracteurope_logo-01.png" height="80" width="300">
+      </div>
+      <div class="text-center mb-4">
+        <h3>Register</h3>
+      </div>
+      <form [formGroup]="createUserForm" id="createAccount" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="firstName">First Name</label>
+          <input type="text"
+                 id="firstName"
+                 formControlName="firstName"
+                 class="form-control"
+                 [ngClass]="{'is-invalid': submitted && f.firstName.errors}"/>
+          <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+            <div *ngIf="f.firstName.errors.required">First name is required</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="lastName">Last Name</label>
+          <input type="text"
+                 id="lastName"
+                 formControlName="lastName"
+                 class="form-control"
+                 [ngClass]="{'is-invalid': submitted && f.lastName.errors}"/>
+          <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+            <div *ngIf="f.lastName.errors.required">Last name is required</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="districtNumber">District number</label>
+          <input type="number"
+                 id="districtNumber"
+                 (blur)="disctrictNoExistsValidate()"
+                 formControlName="districtNumber"
+                 class="form-control"
+                 [ngClass]="{'is-invalid': submitted && f.districtNumber.errors}"/>
+          <div *ngIf="submitted && f.districtNumber.errors" class="invalid-feedback">
+            <div *ngIf="f.districtNumber.errors.required">District Number is required</div>
+          </div>
+          <div *ngIf="districtExists" class="text-danger">
+            <div>District number is not valid</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="string"
+                 id="username"
+                 formControlName="username"
+                 class="form-control"
+                 (blur)="uniquenessUsername()"
+                 [ngClass]="{'is-invalid': submitted && f.username.errors}"/>
+          <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+            <div *ngIf="f.username.errors.required">Username is required</div>
+          </div>
+          <div *ngIf="usernameNotUnique" class="text-danger">
+            <div>Username is already used</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="text"
+                 id="email"
+                 formControlName="email"
+                 (blur)="uniquenessEmail()"
+                 class="form-control"
+                 [ngClass]="{'is-invalid': submitted && f.email.errors}"/>
+          <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+            <div *ngIf="f.email.errors.required">Email is required</div>
+            <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+            <div *ngIf="f.email.errors.pattern">Email must be a valid email address</div>
+          </div>
+          <div *ngIf="emailNotUnique" class="text-danger">
+            <div>Email is already used</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password"
+                 id="password"
+                 formControlName="password"
+                 class="form-control"
+                 [ngClass]="{'is-invalid': submitted && f.password.errors}"/>
+          <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+            <div *ngIf="f.password.errors.required">Password is required</div>
+            <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <button id="createUser" class="btn btn-success btn-block" type="submit">Register</button>
+        </div>
+      </form>
+      <div class="text-center mt-3">
+      <button class="btn btn-link" id="cancel" (click)="cancel()">Cancel</button>
+      </div>
+      <div class="d-flex flex-row mt-3">
+        <hr>
+        <div class="mx-3"><h3>or</h3></div>
+        <hr>
+      </div>
+      <div class="footer">
+        <button class="btn btn-primary btn-block" id="loginBtn" (click)="login()">Login</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+ul li{
+  background-color: lightgrey;
+}
+.order-summary{
+  padding-left: 3px;
+  border-left: 1px solid black;
+}
+.address-info {
+  font-size: 60%;
+}

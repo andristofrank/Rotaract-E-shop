@@ -1,0 +1,68 @@
+<div class="table-container mt-3">
+  <h3>Products Overview</h3>
+  <div class="float-right mb-3">
+    <button class="btn btn-primary" (click)="openModal(addProduct)">
+      <i class="fas fa-plus"></i>
+    </button>
+  </div>
+  <div class="table-responsive mb-2">
+    <table class="table">
+      <thead>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Image</th>
+      <th>Price</th>
+      <th>In inventory</th>
+      <th>Actions</th>
+      </thead>
+      <tbody>
+      <tr *ngFor="let product of products">
+        <td>{{product.ProductId}}</td>
+        <td>{{product.Name}}</td>
+        <td>{{product.Description}}</td>
+        <td>
+          <div *ngIf="product.ImageRef !== 'None'">
+            <button type="button" class="btn btn-sm btn-link"
+                    [ngbPopover]="image64">
+              Show image</button>
+          </div>
+          <div *ngIf="product.ImageRef === 'None'">None</div>
+        </td>
+        <td>{{product.Price}} <i class="fas fa-euro-sign"></i> </td>
+        <th><span [ngClass]="{'text-danger': product.Inventory === 0}">{{product.Inventory}}</span></th>
+        <td>
+          <button class="btn btn-sm btn-danger mr-1" (click)="delete(product.ProductId)">
+            <i class="fas fa-trash"></i>
+          </button>
+          <button class="btn btn-sm btn-info mr-1" (click)="openModal(editProduct)">
+            <i class="fas fa-edit"></i>
+          </button>
+          <button class="btn btn-sm btn-success" (click)="openModal(addInventory)">
+            <i class="fas fa-plus"></i>
+          </button>
+        </td>
+        <ng-template #image64 >
+          <img src="{{product.ImageRef}}" width="200" height="200"/>
+        </ng-template>
+        <ng-template #editProduct>
+          <app-product-form [product]="product" (updatedProduct)="getProducts()"></app-product-form>
+        </ng-template>
+        <ng-template #addInventory>
+          <app-product-inventory [product]="product"
+                                 (inventoryChanged)="update($event)">
+          </app-product-inventory>
+        </ng-template>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <app-pagination [pageSize]="pageSize"
+                  [page]="page"
+                  [totalPages]="totalPages"
+                  (pageChanged)="pageChanged($event)"
+                  (pageSizeChanged)="pageSizeChanged($event)"></app-pagination>
+</div>
+<ng-template #addProduct let-modal>
+  <app-product-form [product]="null" (updatedProduct)="getProducts()"></app-product-form>
+</ng-template>

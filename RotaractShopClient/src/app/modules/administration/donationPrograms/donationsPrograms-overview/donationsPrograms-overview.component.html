@@ -1,0 +1,70 @@
+<div class="table-container mt-3">
+  <h3>Donations Programs Overview</h3>
+  <div class="float-right mb-3">
+    <button class="btn btn-primary" id="add" (click)="open(addDonationProgram)">
+      <i class="fas fa-plus"></i>
+    </button>
+  </div>
+  <div class="table-responsive mb-2">
+    <table class="table">
+      <thead>
+      <th>Id</th>
+      <th>Donation Program Name</th>
+      <th>Description</th>
+      <th>Image</th>
+      <th>Duration Period</th>
+      <th></th>
+      <th>Donated</th>
+      <th>Actions</th>
+      </thead>
+      <tbody>
+      <tr *ngFor="let donationProgram of donationPrograms">
+        <td>{{donationProgram.DonationProgramId}}</td>
+        <td>{{donationProgram.DonationProgramName}}</td>
+        <td><div class="overflowed overflowed-ellipsis-word">
+          <p>{{donationProgram.Description}}</p></div></td>
+        <td>
+          <div *ngIf="donationProgram.ImageRef !== 'None'">
+            <button type="button" class="btn btn-link btn-sm" [ngbPopover]="image64">Show image</button>
+          </div>
+          <div *ngIf="donationProgram.ImageRef === 'None'">None</div>
+        </td>
+        <td>{{date(donationProgram.StartDate)}} -> {{date(donationProgram.EndDate)}}</td>
+        <td>
+        <div *ngIf="status(donationProgram.EndDate, donationProgram.StartDate)" class="text-success">Active</div>
+        <div *ngIf="!status(donationProgram.EndDate, donationProgram.StartDate)" class="text-danger">Inactive</div>
+        </td>
+        <td>{{donationProgram.Total}} <i class="fas fa-euro-sign"></i> </td>
+        <td>
+          <button class="btn btn-sm btn-danger mr-1" id="delete{{donationProgram.DonationProgramId}}"
+                  (click)="delete(donationProgram.DonationProgramId)">
+          <i class="fas fa-trash"></i>
+          </button>
+          <button class="btn btn-sm btn-info" id="edit{{donationProgram.DonationProgramId}}"
+                  (click)="open(editDonationProgram)">
+            <i class="fas fa-edit"></i>
+          </button>
+        </td>
+        <ng-template #image64 >
+          <img src="{{donationProgram.ImageRef}}" width="400" height="200"/>
+        </ng-template>
+        <ng-template #editDonationProgram>
+          <app-donationProgram-form [donationProgram]="donationProgram"
+                             (donationProgramChange)="getDonationPrograms()">
+          </app-donationProgram-form>
+        </ng-template>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <app-pagination [pageSize]="pageSize"
+                  [page]="page"
+                  [totalPages]="totalElements"
+                  (pageChanged)="pageChanged($event)"
+                  (pageSizeChanged)="pageSizeChanged($event)"></app-pagination>
+</div>
+<ng-template #addDonationProgram>
+  <app-donationProgram-form [donationProgram]="null"
+                            (donationProgramChange)="getDonationPrograms()">
+  </app-donationProgram-form>
+</ng-template>

@@ -1,0 +1,138 @@
+<div class="custom-container mx-4 mt-3">
+  <div class="row">
+    <!---Shipping Information-->
+  <div class="col-md-9">
+    <h3>Shipping Details</h3>
+    <div class="border-dark p-4">
+      <form [formGroup]="shippingDetailsForm"
+            id="shippingDetailsForm">
+        <div class="form-row">
+          <div class="form-group col-md-4 col-sm-12">
+            <label for="firstName">First Name</label>
+            <input type="text"
+                   id="firstName"
+                   formControlName="firstName"
+                   class="form-control"
+                   [ngClass]="{'is-invalid': submitted && f.firstName.errors}"/>
+            <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+              <div *ngIf="f.firstName.errors.required">First name is required</div>
+            </div>
+          </div>
+          <div class="form-group col-md-4 col-sm-12">
+            <label for="lastName">Last Name</label>
+            <input type="text"
+                   id="lastName"
+                   formControlName="lastName"
+                   class="form-control"
+                   [ngClass]="{'is-invalid': submitted && f.lastName.errors}"/>
+            <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+              <div *ngIf="f.lastName.errors.required">Last name is required</div>
+            </div>
+          </div>
+          <div class="form-group col-md-4 col-sm-12">
+            <label for="lastName">Phone number:</label>
+            <input type="number"
+                   id="phoneNumber"
+                   placeholder=""
+                   formControlName="phoneNumber"
+                   class="form-control"
+                   [ngClass]="{'is-invalid': submitted && f.phoneNumber.errors}"/>
+            <div *ngIf="submitted && f.phoneNumber.errors" class="invalid-feedback">
+              <div *ngIf="f.phoneNumber.errors.required">Phone number is required</div>
+            </div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6 col-sm-12">
+            <label for="country">Country</label>
+            <input type="text"
+                   id="country"
+                   formControlName="country"
+                   class="form-control"
+                   [ngClass]="{'is-invalid': submitted && f.country.errors}"/>
+            <div *ngIf="submitted && f.country.errors" class="invalid-feedback">
+              <div *ngIf="f.country.errors.required">Country is required</div>
+            </div>
+          </div>
+          <div class="form-group col-md-6 col-sm-12">
+            <label for="addressLine">Address Line</label>
+            <input type="text"
+                   id="addressLine"
+                   formControlName="addressLine"
+                   class="form-control"
+                   [ngClass]="{'is-invalid': submitted && f.addressLine.errors}"/>
+            <div *ngIf="submitted && f.addressLine.errors" class="invalid-feedback">
+              <div *ngIf="f.addressLine.errors.required">Address is required</div>
+            </div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-4 col-sm-12">
+            <label for="city">City</label>
+            <input type="text"
+                   id="city"
+                   formControlName="city"
+                   class="form-control"
+                   [ngClass]="{'is-invalid': submitted && f.city.errors}"/>
+            <div *ngIf="submitted && f.city.errors" class="invalid-feedback">
+              <div *ngIf="f.city.errors.required">City is required</div>
+            </div>
+          </div>
+          <div class="form-group col-md-4 col-sm-12">
+            <label for="county_region">County/Region</label>
+            <input type="text"
+                   id="county_region"
+                   formControlName="county_region"
+                   class="form-control"
+                   [ngClass]="{'is-invalid': submitted && f.county_region.errors}"/>
+            <div *ngIf="submitted && f.county_region.errors" class="invalid-feedback">
+              <div *ngIf="f.county_region.errors.required">County/Region is required</div>
+            </div>
+          </div>
+          <div class="form-group col-md-4 col-sm-12">
+            <label for="postalCode">Postal code</label>
+            <input type="number"
+                   id="postalCode"
+                   formControlName="postalCode"
+                   class="form-control"
+                   [ngClass]="{'is-invalid': submitted && f.postalCode.errors}"/>
+            <div *ngIf="submitted && f.postalCode.errors" class="invalid-feedback">
+              <div *ngIf="f.postalCode.errors.required">Postal code is required</div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+    <!---Order Summary-->
+  <div class="col-md-3 flex-column order-summary">
+    <h3>Order Summary</h3>
+    <div class="d-flex flex-column">
+      <ul class="list-unstyled">
+        <!--Products-->
+        <h5>Products</h5>
+        <li *ngFor="let product of itemList().products">
+          <div class="d-flex justify-content-between">
+            <span>{{product.item.Name}} x {{product.quantity}}</span>
+            <span>{{product.item.Price * product.quantity}} <i class="fas fa-euro-sign"></i></span>
+          </div>
+        </li>
+      </ul>
+      <hr>
+      <div class="d-flex justify-content-between">
+        <span>Total: </span>
+        <span>{{total()}} <i class="fas fa-euro-sign"></i></span>
+      </div>
+      <div class="mt-5 pt-5">
+        <button id="cancel" class="text-center btn-block text-danger mb-3 btn btn-link"
+        (click)="cancel()">Cancel</button>
+        <button id="pay" class="btn-block btn btn-success"
+                (click)="onSubmit()" [disabled]="this.shippingDetailsForm.invalid || submitted">
+          Pay {{total()}} <i class="fas fa-euro-sign"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="d-flex row"></div>
+</div>

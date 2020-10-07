@@ -1,0 +1,33 @@
+<div class="modal-body">
+  <div class="d-flex flex-column">
+    <div class="text-center p-2 w-100">
+      <h2>Support {{donationProgram.DonationProgramName}}</h2>
+    </div>
+    <div class="text-center p-2 w-100">
+      <label>Add the amount you would like to donate in the field below: </label>
+    </div>
+    <div class="mx-auto w-50">
+      <div class="input-group mb-3">
+        <input class="form-control"
+               type="number"
+               [(ngModel)]="amount"
+               id="donationAmount">
+        <div class="input-group-append">
+          <span class="input-group-text">
+            <i class="fas fa-euro-sign"></i></span>
+        </div>
+        <div></div>
+      </div>
+    </div>
+    <div class="mx-auto">
+      <button class="btn mt-3 btn-success"
+              (click)="makeDonation()" [disabled]="submitted">
+        Confirm your contribution</button>
+    </div>
+    <div class="mx-auto">
+      <button class="btn mt-3 btn-link"
+              (click)="close()"
+              type="button"> Close </button>
+    </div>
+  </div>
+</div>

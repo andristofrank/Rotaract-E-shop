@@ -1,0 +1,107 @@
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+    <th>Id</th>
+    <th>Status</th>
+    <th>Creation Date</th>
+    <th>Products</th>
+    <th>Shipping Details</th>
+    <th>Total Paid</th>
+    </thead>
+    <tbody>
+    <tr *ngFor="let order of orders">
+      <td>{{order.OrderId}}</td>
+      <td>
+        <div>
+          <a (click)="changeStatus(order)"
+             class="badge p-2 badge-pill"
+             id="changeStatus{{order.OrderId}}"
+             [ngClass]="{'badge-warning': order.Status==='PENDING',
+            'badge-success': order.Status ==='CONFIRMED'|| order.Status === 'COMPLETED',
+            'badge-info': order.Status === 'INPROGRESS',
+            'badge-light': order.Status === 'SHIPPING',
+            'badge-secondary': order.Status === 'CANCELLED'}">
+            {{order.Status | lowercase}}</a>
+          <div [ngClass]="{'d-none': (order.Status === 'COMPLETED') ||
+          (order.Status === 'CANCELLED') ||
+          (order.Status === 'SHIPPING')}">
+            <a   id="cancel{{order.OrderId}}"
+            class= "badge badge-pill badge-danger p-2 mt-5"
+            (click)="cancelOrder(order)">Cancel</a>
+          </div>
+        </div>
+      </td>
+      <td>{{order.DateStamp}}</td>
+      <td>
+        <div *ngFor="let product of order.OrderItems"
+             class="d-flex justify-content-between">
+          <div>
+            <button type="button"
+                    class="btn btn-link btn-sm"
+                    [ngbPopover]="image64">
+              {{product.product.Name}}</button>
+          </div>
+          <div class="d-flex flex-row">
+            {{product.Quantity}} <span *ngIf="order.Status === 'PENDING'"> / {{product.product.Inventory}}</span>
+            <div class="ml-2" *ngIf="order.Status === 'PENDING'">
+              <div *ngIf="product.product.Inventory < product.Quantity">
+                <a id="addInventory{{order.OrderId}}-{{product.product.ProductId}}" (click)="openModal(addInventory)" class="text-info ml-2"><i class="fas fa-plus-circle"></i></a>
+              </div>
+              <div *ngIf="product.product.Inventory > product.Quantity" class="text-success">
+                <i class="fas fa-check-circle"></i>
+              </div>
+            </div>
+          </div>
+          <ng-template #image64 >
+            <img src="{{product.product.ImageRef}}" width="200" height="200"/>
+          </ng-template>
+          <ng-template #addInventory>
+            <app-product-inventory (inventoryChanged)="update($event);"
+                                   [product]="product.product"></app-product-inventory>
+          </ng-template>
+        </div>
+      </td>
+      <td class="address-info d-flex flex-column">
+        <div class="d-flex justify-content-between">
+          <span>First Name:</span>
+          <span>{{order.ShippingDetailsModel.FirstName}}</span>
+        </div>
+        <div class="d-flex justify-content-between">
+          <span>Last Name:</span>
+          <span> {{order.ShippingDetailsModel.LastName}}</span>
+        </div>
+        <div class="d-flex justify-content-between">
+          <span>Phone Number:</span>
+          <span> {{order.ShippingDetailsModel.PhoneNumber}}</span>
+        </div>
+        <div class="d-flex justify-content-between">
+          <span>Country:</span>
+          <span> {{order.ShippingDetailsModel.Country}}</span>
+        </div>
+        <div class="d-flex justify-content-between">
+          <span>City:</span>
+          <span>{{order.ShippingDetailsModel.City}}</span>
+        </div>
+        <div class="d-flex justify-content-between">
+          <span>County/Region:</span>
+          <span> {{order.ShippingDetailsModel.County_Region}}</span>
+        </div>
+        <div class="d-flex justify-content-between">
+          <span>Postal Code:</span>
+          <span> {{order.ShippingDetailsModel.PostalCode}}</span>
+        </div>
+        <div class="d-flex justify-content-between">
+          <span>Address Line:</span>
+          <span> {{order.ShippingDetailsModel.AddressLine}}</span>
+        </div>
+      </td>
+      <td>{{order.TotalPrice}} <i class="fas fa-euro-sign"></i></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<app-pagination [pageSize]="pageSize"
+                [page]="page"
+                [totalPages]="totalElements"
+                (pageChanged)="pageChanged($event)"
+                (pageSizeChanged)="pageSizeChanged($event)"></app-pagination>

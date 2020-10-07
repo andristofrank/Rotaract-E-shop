@@ -1,0 +1,45 @@
+<div class="table-container mt-3">
+  <h3>Orders Overview</h3>
+  <ul ngbNav #nav = "ngbNav"
+      [(activeId)]="active"
+      [destroyOnHide]="false"
+      class="nav-tabs">
+    <li [ngbNavItem]="1" [destroyOnHide]="true">
+      <a ngbNavLink>Pending</a>
+      <ng-template ngbNavContent>
+        <app-orders [status]="status.PENDING"></app-orders>
+      </ng-template>
+    </li>
+    <li [ngbNavItem]="2" [destroyOnHide]="true">
+      <a ngbNavLink>Confirmed</a>
+      <ng-template ngbNavContent>
+        <app-orders [status]="status.CONFIRMED"></app-orders>
+      </ng-template>
+    </li>
+    <li [ngbNavItem]="3" [destroyOnHide]="true">
+      <a ngbNavLink>In Progress</a>
+      <ng-template ngbNavContent>
+        <app-orders [status]="status.INPROGRESS"></app-orders>
+      </ng-template>
+    </li>
+    <li [ngbNavItem]="4" [destroyOnHide]="true">
+      <a ngbNavLink>Shipping</a>
+      <ng-template ngbNavContent>
+        <app-orders [status]="status.SHIPPING"></app-orders>
+      </ng-template>
+    </li>
+    <li [ngbNavItem]="5" [destroyOnHide]="true">
+      <a ngbNavLink>Completed</a>
+      <ng-template ngbNavContent>
+        <app-orders [status]="status.COMPLETED"></app-orders>
+      </ng-template>
+    </li>
+    <li [ngbNavItem]="6" [destroyOnHide]="true">
+      <a ngbNavLink>Cancelled</a>
+      <ng-template ngbNavContent>
+        <app-orders [status]="status.CANCELLED"></app-orders>
+      </ng-template>
+    </li>
+  </ul>
+  <div [ngbNavOutlet]="nav" class="mt-2"></div>
+</div>

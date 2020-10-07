@@ -1,0 +1,40 @@
+/* You can add global styles to this file, and also import other style files */
+@import "styles/auth-forms.css";
+@import "styles/buttons.css";
+@import "styles/containers.css";
+@import "styles/_fonts.css";
+@import "styles/typography.css";
+body {
+  background-color: white;
+}
+hr {
+  margin-bottom: 3px;
+  width: 100%;
+  border: 1px solid grey;
+  border-radius: 50%;
+}
+.text-danger{
+  font-size: 80%;
+}
+.text-sm {
+  font-size: 10px;
+}
+app-donations-overview .popover {
+  max-width: 450px!important;
+}
+* {
+  object-fit: cover;
+}
+.overflowed > p {
+  width: 18rem;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.overflowed-ellipsis-word > p {
+  text-overflow: ellipsis;
+}
+@media (min-width: 320px) and (max-width: 480px) {
+  ngb-modal-window .modal-dialog {
+   width: calc(100vw - 20px)!important;
+  }
+}

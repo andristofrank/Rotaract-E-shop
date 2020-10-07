@@ -1,0 +1,28 @@
+<div class="custom-container mt-3 mx-4">
+  <h3>My Donations</h3>
+  <div *ngIf="donations.length > 0;else noOrders" class="table-responsive">
+    <table class="table">
+      <thead>
+      <th>Id</th>
+      <th>Donation Program</th>
+      <th>Amount</th>
+      </thead>
+      <tbody>
+      <tr *ngFor="let donation of donations">
+        <td>{{donation.DonationProgramId}}</td>
+        <td>{{donation.DonationProgramName}}</td>
+        <td>{{donation.Total}}</td>
+      </tr>
+      </tbody>
+    </table>
+    <app-pagination [pageSize]="pageSize"
+                    [page]="page"
+                    [totalPages]="totalElements"
+                    (pageChanged)="pageChanged($event)"
+                    (pageSizeChanged)="pageSizeChanged($event)"></app-pagination>
+  </div>
+</div>
+<ng-template #noOrders>
+  <i>There are no registered donations</i>
+</ng-template>
+

@@ -1,0 +1,30 @@
+<div class="modal-body">
+  <div class="d-flex flex-column">
+    <div class="text-center p-2 w-100">
+      <h2>Update {{product.Name}} inventory</h2>
+    </div>
+    <div class="text-center p-2 w-100">
+      <label>Add the amount you would like add in the field below: </label>
+    </div>
+    <div class="mx-auto w-50">
+      <div class="input-group mb-3">
+        <input class="form-control"
+               type="number"
+               [(ngModel)]="amount">
+        <div></div>
+      </div>
+    </div>
+    <div class="mx-auto">
+      <button class="btn mt-3 btn-success"
+              (click)="updateInventory()" [disabled]="submitted">
+        Add Products
+      </button>
+    </div>
+    <div class="mx-auto">
+      <button class="btn mt-3 btn-link"
+              (click)="close()"
+              type="button"> Close </button>
+    </div>
+  </div>
+</div>
+

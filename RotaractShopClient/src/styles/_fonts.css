@@ -1,0 +1,240 @@
+@font-face {
+    font-family: 'Playfair Display';
+    src: url('src/assets/fonts/PlayfairDisplay-MediumItalic.woff2') format('woff2'),
+        url('src/assets/fonts/PlayfairDisplay-MediumItalic.woff') format('woff');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('src/assets/fonts/Montserrat-ThinItalic.woff2') format('woff2'),
+        url('src/assets/fonts/Montserrat-ThinItalic.woff') format('woff');
+    font-weight: 100;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('src/assets/fonts/Montserrat-ExtraLightItalic.woff2') format('woff2'),
+        url('src/assets/fonts/Montserrat-ExtraLightItalic.woff') format('woff');
+    font-weight: 200;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('src/assets/fonts/Montserrat-Bold.woff2') format('woff2'),
+        url('src/assets/fonts/Montserrat-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('src/assets/fonts/Montserrat-Light.woff2') format('woff2'),
+        url('src/assets/fonts/Montserrat-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Playfair Display';
+    src: url('src/assets/fonts/PlayfairDisplay-Bold.woff2') format('woff2'),
+        url('src/assets/fonts/PlayfairDisplay-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('src/assets/fonts/Montserrat-Italic.woff2') format('woff2'),
+        url('src/assets/fonts/Montserrat-Italic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Playfair Display';
+    src: url('src/assets/fonts/PlayfairDisplay-SemiBoldItalic.woff2') format('woff2'),
+        url('src/assets/fonts/PlayfairDisplay-SemiBoldItalic.woff') format('woff');
+    font-weight: 600;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Playfair Display';
+    src: url('src/assets/fonts/PlayfairDisplay-Medium.woff2') format('woff2'),
+        url('src/assets/fonts/PlayfairDisplay-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('src/assets/fonts/Montserrat-Regular.woff2') format('woff2'),
+        url('src/assets/fonts/Montserrat-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('src/assets/fonts/Montserrat-SemiBold.woff2') format('woff2'),
+        url('src/assets/fonts/Montserrat-SemiBold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('src/assets/fonts/Montserrat-LightItalic.woff2') format('woff2'),
+        url('src/assets/fonts/Montserrat-LightItalic.woff') format('woff');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('src/assets/fonts/Montserrat-ExtraBoldItalic.woff2') format('woff2'),
+        url('src/assets/fonts/Montserrat-ExtraBoldItalic.woff') format('woff');
+    font-weight: 800;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('src/assets/fonts/Montserrat-MediumItalic.woff2') format('woff2'),
+        url('src/assets/fonts/Montserrat-MediumItalic.woff') format('woff');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Playfair Display';
+    src: url('src/assets/fonts/PlayfairDisplay-ExtraBoldItalic.woff2') format('woff2'),
+        url('src/assets/fonts/PlayfairDisplay-ExtraBoldItalic.woff') format('woff');
+    font-weight: 800;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Playfair Display';
+    src: url('src/assets/fonts/PlayfairDisplay-BlackItalic.woff2') format('woff2'),
+        url('src/assets/fonts/PlayfairDisplay-BlackItalic.woff') format('woff');
+    font-weight: 900;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('src/assets/fonts/Montserrat-Medium.woff2') format('woff2'),
+        url('src/assets/fonts/Montserrat-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Playfair Display';
+    src: url('src/assets/fonts/PlayfairDisplay-ExtraBold.woff2') format('woff2'),
+        url('src/assets/fonts/PlayfairDisplay-ExtraBold.woff') format('woff');
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('src/assets/fonts/Montserrat-BoldItalic.woff2') format('woff2'),
+        url('src/assets/fonts/Montserrat-BoldItalic.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Playfair Display';
+    src: url('src/assets/fonts/PlayfairDisplay-Regular.woff2') format('woff2'),
+        url('src/assets/fonts/PlayfairDisplay-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Playfair Display';
+    src: url('src/assets/fonts/PlayfairDisplay-Italic.woff2') format('woff2'),
+        url('src/assets/fonts/PlayfairDisplay-Italic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('src/assets/fonts/Montserrat-ExtraLight.woff2') format('woff2'),
+        url('src/assets/fonts/Montserrat-ExtraLight.woff') format('woff');
+    font-weight: 200;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Playfair Display';
+    src: url('src/assets/fonts/PlayfairDisplay-Black.woff2') format('woff2'),
+        url('src/assets/fonts/PlayfairDisplay-Black.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Playfair Display';
+    src: url('src/assets/fonts/PlayfairDisplay-BoldItalic.woff2') format('woff2'),
+        url('src/assets/fonts/PlayfairDisplay-BoldItalic.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('src/assets/fonts/Montserrat-ExtraBold.woff2') format('woff2'),
+        url('src/assets/fonts/Montserrat-ExtraBold.woff') format('woff');
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('src/assets/fonts/Montserrat-BlackItalic.woff2') format('woff2'),
+        url('src/assets/fonts/Montserrat-BlackItalic.woff') format('woff');
+    font-weight: 900;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('src/assets/fonts/Montserrat-Black.woff2') format('woff2'),
+        url('src/assets/fonts/Montserrat-Black.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('src/assets/fonts/Montserrat-SemiBoldItalic.woff2') format('woff2'),
+        url('src/assets/fonts/Montserrat-SemiBoldItalic.woff') format('woff');
+    font-weight: 600;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Playfair Display';
+    src: url('src/assets/fonts/PlayfairDisplay-SemiBold.woff2') format('woff2'),
+        url('src/assets/fonts/PlayfairDisplay-SemiBold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('src/assets/fonts/Montserrat-Thin.woff2') format('woff2'),
+        url('src/assets/fonts/Montserrat-Thin.woff') format('woff');
+    font-weight: 100;
+    font-style: normal;
+}
+

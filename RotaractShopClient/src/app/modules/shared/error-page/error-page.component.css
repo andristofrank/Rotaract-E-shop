@@ -1,0 +1,52 @@
+#notFound {
+  position: relative;
+  height: 100vh;
+
+}
+#notFound .notFound{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+#notFound .notfound-404 {
+  position: relative;
+  height: 250px;
+}
+#notFound .notFound .notfound-404 .notFound-h3 {
+  font-family: Montserrat;
+  position: relative;
+  font-size: 24px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: black;
+  margin: 0;
+  letter-spacing: 3px;
+  padding-left: 6px;
+}
+#notFound .notFound .notfound-404 .notFound-h1 {
+  font-family: Montserrat;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 200px!important;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: #D51067;
+  margin: 0;
+  letter-spacing: -40px;
+  margin-left: -20px;
+}
+#notFound .notFound .notfound-404 .notFound-h1 span {
+  text-shadow: -8px 0px 0px #ffffff;
+}
+#notFound .notFound .notFound-h2 {
+  font-family: Montserrat, sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: #000;
+  margin-top: 0px;
+  margin-bottom: 25px;
+}

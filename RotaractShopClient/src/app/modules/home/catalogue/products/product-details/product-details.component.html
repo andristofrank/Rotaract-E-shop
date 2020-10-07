@@ -1,0 +1,26 @@
+<div class="modal-body">
+    <div class="row">
+      <div class="col-md-6 col-sm-12">
+        <img src="{{product.ImageRef}}" height="325" width="100%">
+      </div>
+      <div class="col-md-6 col-sm-12">
+        <h3>{{product.Name}}</h3>
+        <h4>About this product: </h4>
+          <p>{{product.Description}}</p>
+        <h5 class="float-right mt-5">Price per item: <b>{{product.Price}} €</b></h5>
+      </div>
+    </div>
+    <div class="col-md-6 col-sm-12 float-right mt-md-4 mt-sm-2">
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Quantity:</span>
+        </div>
+        <input type="number" class="form-control" [(ngModel)]="quantity" min="1">
+        <div class="input-group-append">
+          <button type="button" class="btn btn-success" (click)="addToCart()">
+            <i class="fas fa-shopping-cart"></i> Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  <div class="mt-4 d-md-none text-center"><button class="btn btn-link" (click)="close()">Close</button></div>
+</div>

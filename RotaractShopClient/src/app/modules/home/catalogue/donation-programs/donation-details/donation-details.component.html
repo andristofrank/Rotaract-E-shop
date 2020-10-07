@@ -1,0 +1,27 @@
+<div class="modal-body">
+  <div class="d-flex flex-column">
+    <div>
+      <img src="{{donationProgram.ImageRef}}" height="200" width="100%">
+    </div>
+    <div class="text-center p-2 w-100">
+      <h2>{{donationProgram.DonationProgramName}}</h2>
+    </div>
+    <div class="text-center p-2 w-100">
+      <p>{{donationProgram.Description}}</p>
+    </div>
+    <div class="text-center p-2 float-right">
+      <span>Donations for this program can be made until: </span>
+    </div>
+    <div class="text-center p-2">
+      <button class="btn btn-large btn-block btn-success"
+              type="button"
+              (click)="openModal(donate)"> Donate Now <i class="fas fa-hand-holding-heart"></i></button>
+      <button class="btn btn-link mt-3" (click)="close()"
+              type="button"> Close </button>
+    </div>
+
+  </div>
+</div>
+<ng-template #donate>
+  <app-donate [donationProgram]="donationProgram"></app-donate>
+</ng-template>

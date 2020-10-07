@@ -1,0 +1,24 @@
+<div *ngIf="error">The Products could not be loaded from the server</div>
+<div class="row mx-md-5 mt-5">
+  <div *ngFor="let product of products" (click)="openModal(productDetails)" class="col-xl-3 col-lg-4 col-md-4 col-sm-12 ">
+    <div class="product-container mx-auto">
+      <div class="image-presentation">
+        <img src="{{product.ImageRef}}" alt="{{product.Name}}" height="200" width="100%">
+      </div>
+      <div class="d-flex flex-column text-center">
+        <h5>{{product.Name}}</h5>
+        <h6>{{product.Price}} <i class="fas fa-euro-sign"></i></h6>
+      </div>
+    </div>
+    <ng-template #productDetails>
+      <app-product-details [product]="product"></app-product-details>
+    </ng-template>
+  </div>
+</div>
+<div class="p-4">
+  <app-pagination [pageSize]="pageSize"
+                  [page]="page"
+                  [totalPages]="totalElements"
+                  (pageChanged)="pageChanged($event)"
+                  (pageSizeChanged)="pageSizeChanged($event)"></app-pagination>
+</div>

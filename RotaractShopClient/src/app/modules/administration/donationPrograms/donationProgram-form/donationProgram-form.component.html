@@ -1,0 +1,99 @@
+
+<div class="modal-header">
+  <h4 class="modal-title">{{header}}</h4>
+  <button type="button" class="close" aria-label="close" (click)="closeModal()">
+    <span aria-hidden="true"><i class="fas fa-times"></i></span>
+  </button>
+</div>
+<div class="modal-body">
+  <form [formGroup]="donationProgramForm" id="donationForm">
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label for="donationProgramName">Name</label>
+          <input type="text"
+                 id="donationProgramName"
+                 formControlName="donationProgramName"
+                 class="form-control"
+                 [ngClass]="{'is-invalid': submitted && f.donationProgramName.errors}"/>
+          <div *ngIf="submitted && f.donationProgramName.errors" class="invalid-feedback">
+            <div *ngIf="f.donationProgramName.errors.required">
+              Name of the Donation program programme is required</div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea type="text"
+                    id="description"
+                    formControlName="description"
+                    class="form-control"></textarea>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group">
+        <app-image-loader style="height: 100px" [existingImage]="image" (image64)="getImage($event)"></app-image-loader>
+      </div>
+    </div>
+    <div class="row">
+        <div class="form-group hidden">
+          <div class="input-group">
+            <input name="datepicker"
+                   class="form-control"
+                   ngbDatepicker
+                   #datepicker="ngbDatepicker"
+                   [autoClose]="'outside'"
+                   (dateSelect)="onDateSelection($event)"
+                   [displayMonths]="2"
+                   [dayTemplate]="t"
+                   outsideDays="hidden"
+                   [startDate]="fromDate!">
+            <ng-template #t let-date let-focused="focused">
+        <span class="custom-day"
+              [class.focused]="focused"
+              [class.range]="isRange(date)"
+              [class.faded]="isHovered(date) || isInside(date)"
+              (mouseenter)="hoveredDate = date"
+              (mouseleave)="hoveredDate = null">
+          {{ date.day }}
+        </span>
+            </ng-template>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="input-group">
+            <input #dpFromDate
+                   class="form-control" placeholder="yyyy-mm-dd"
+                   name="dpFromDate"
+                   [value]="formatter.format(fromDate)"
+                   (input)="fromDate = validateInput(fromDate, dpFromDate.value)">
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary calendar" (click)="datepicker.toggle()" type="button">
+                <i class="fas fa-calendar"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="form-group ml-2">
+          <div class="input-group">
+            <input #dpToDate
+                   class="form-control" placeholder="yyyy-mm-dd"
+                   name="dpToDate"
+                   [value]="formatter.format(toDate)"
+                   (input)="toDate = validateInput(toDate, dpToDate.value)">
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary calendar" (click)="datepicker.toggle()" type="button">
+                <i class="fas fa-calendar"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <button class="btn btn-link mr-3" id="cancel" (click)="closeModal()">Cancel</button>
+  <button class="btn btn-success " id="save" (click)="onSubmit()">Save</button>
+</div>

@@ -1,0 +1,55 @@
+<div>
+  <div class="d-flex flex-row justify-content-center">
+    <div class="form-container">
+      <div>
+        <img src="assets/rotaracteurope_logo-01.png" height="80" width="300">
+      </div>
+      <div class="text-center mb-4">
+        <h3>Login</h3>
+      </div>
+      <form [formGroup]="loginForm" id="loginUser" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text"
+                 id="username"
+                 formControlName="username"
+                 class="form-control"
+                 [ngClass]="{'is-invalid': submitted && f.username.errors}"/>
+          <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+            <div *ngIf="f.username.errors.required">Username is required</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password"
+                 id="password"
+                 formControlName="password"
+                 class="form-control"
+                 [ngClass]="{'is-invalid': submitted && f.password.errors}"/>
+          <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+            <div *ngIf="f.password.errors.required">Password is required</div>
+          </div>
+          <div><button type="button"
+                       class="btn btn-link p-0 m-0"
+                       (click)="toastrService.warning('Not implemented yet.')">
+            Forgot password?</button></div>
+        </div>
+        <div class="form-group mt-5">
+          <button class="btn btn-success btn-block" type="submit">Login</button>
+        </div>
+      </form>
+      <div class="text-center mt-3">
+      <button class="btn btn-link" (click)="cancel()">Cancel</button>
+      </div>
+      <div class="d-flex flex-row mt-3">
+        <hr>
+        <div class="mx-3"><h3>or</h3></div>
+        <hr>
+      </div>
+      <div class="footer my-3 mb-3">
+        <button class="btn btn-primary btn-block"
+                (click)="registerUser()">Register now</button>
+      </div>
+    </div>
+  </div>
+</div>

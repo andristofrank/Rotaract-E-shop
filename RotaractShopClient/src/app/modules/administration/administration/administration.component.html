@@ -1,0 +1,37 @@
+<app-navigation-bar [user]="user"></app-navigation-bar>
+<div class="wrapper">
+  <!-- Sidebar version 2 -->
+  <nav id="sidebar">
+    <div class="sidebar-header mt-2">
+      <h5>ADMINISTRATION</h5>
+      <hr>
+    </div>
+    <ul class="list-unstyled mt-4">
+      <li routerLink="orders" routerLinkActive="active">
+      <div class="menu-button">
+        <a>ORDERS</a>
+      </div>
+      </li>
+      <li routerLink="products" routerLinkActive="active">
+        <div class="menu-button">
+        <a>PRODUCTS</a>
+        </div>
+      </li>
+      <li routerLink="donationPrograms" routerLinkActive="active">
+        <div class="menu-button">
+        <a>DONATION PROGRAMS</a>
+        </div>
+      </li>
+    </ul>
+  </nav>
+  <div id="content">
+    <div class="ml-3 mt-2">
+      <button type="button" id="sidebarCollapse" class="btn btn-success">
+        <i class="fas fa-align-left"></i>
+      </button>
+    </div>
+    <div class="m-4">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

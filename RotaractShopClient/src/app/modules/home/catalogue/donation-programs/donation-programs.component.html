@@ -1,0 +1,25 @@
+<div *ngIf="donationPrograms.length > 0">
+  <ngb-carousel [interval]="4000" [pauseOnHover]="true" wrap="true"
+                [showNavigationArrows]="true"
+                 [showNavigationIndicators]="false">
+      <ng-template *ngFor="let donationProgram of donationPrograms" ngbSlide>
+        <div class="donation-item">
+          <img [src]="donationProgram.ImageRef"
+               alt="{{donationProgram.DonationProgramName}}" height="400" width="100%">
+          <div class="donation-item-description text-center">
+            <div class="mb-5 pb-2"> <button class="btn btn-success" (click)="openModal(donate)">Donate</button></div>
+            <div class="header mb-3">
+              <h3>{{donationProgram.DonationProgramName}}</h3>
+              <button class="btn btn-sm btn-link" (click)="openModal(donationDetails)">Mode info...</button>
+            </div>
+          </div>
+        </div>
+          <ng-template #donationDetails>
+            <app-donation-details [donationProgram]="donationProgram"></app-donation-details>
+          </ng-template>
+          <ng-template #donate>
+            <app-donate [donationProgram]="donationProgram"></app-donate>
+          </ng-template>
+      </ng-template>
+  </ngb-carousel>
+</div>

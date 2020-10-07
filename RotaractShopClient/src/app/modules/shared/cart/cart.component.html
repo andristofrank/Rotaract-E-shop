@@ -1,0 +1,47 @@
+<div class="modal-body">
+  <div>
+    <div class="cartItem-container" *ngFor="let product of cartList.products">
+      <div class="d-flex flex-row">
+        <div>
+          <img src="{{product.item.ImageRef}}" height="100" width="100">
+        </div>
+        <div>
+          <h5>{{product.item.Name}}</h5>
+          <p>Price: {{product.item.Price}} <i class="fas fa-euro-sign"></i></p>
+          <div class="input-group ml-3 mb-3">
+            <div class="input-group-prepend mb-3">
+              <span class="input-group-text">Quantity:</span>
+            </div>
+            <input type="number"
+                   class="form-control"
+                   (blur)="quantityChange(product)"
+                   [(ngModel)]="product.quantity" min="1">
+          </div>
+        </div>
+        <div class="ml-auto">
+          <h5 class="text-center">
+            Total: {{getProductPrice(product)}} <i class="fas fa-euro-sign"></i>
+          </h5>
+          <div class="mt-5">
+            <button class="btn btn-outline-danger"
+                    (click)="removeItem(product)">Remove item
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="d-flex flex-row mt-3" *ngIf="itemsCount > 0; else emptyCart">
+      <div class="ml-auto">
+        <h3>Total to pay: {{total}} <i class="fas fa-euro-sign"></i></h3></div>
+    </div>
+  </div>
+</div>
+<div class="modal-footer">
+  <button class="btn btn-link" (click)="close()">Continue Shopping</button>
+  <button class="ml-5 btn btn-success"
+          *ngIf="itemsCount > 0"
+          (click)="placeOrder()">Place Order</button>
+</div>
+<ng-template #emptyCart>
+  <h5>Your cart is empty</h5>
+</ng-template>

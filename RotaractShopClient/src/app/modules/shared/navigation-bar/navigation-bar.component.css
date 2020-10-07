@@ -1,0 +1,43 @@
+.navbar {
+  -webkit-box-shadow: -1px 8px 129px 9px rgba(99,95,95,0.4);
+  -moz-box-shadow: -1px 8px 129px 9px rgba(99,95,95,0.4);
+  box-shadow: -1px 8px 129px 9px rgba(99,95,95,0.4);
+}
+li .nav-link {
+  font-size: 20px;
+  font-family: Montserrat;
+  padding-bottom: 2px;
+  padding-left: 0;
+  padding-right: 0;
+  margin-right: 30px;
+}
+li .nav-link:hover {
+  cursor: pointer;
+  color: #D51067;
+  border-bottom: 2px solid #0B5395;
+}
+#cart-btn {
+  color: #0B5395;
+}
+.dropdown .dropdown-toggle {
+  color: black;
+  font-size: 16px;
+}
+.dropdown .dropdown-toggle:focus {
+  outline: none;
+}
+.dropdown .dropdown-menu {
+  margin-top: 2px;
+  padding: 0;
+}
+.dropdown .dropdown-menu .dropdown-item{
+  color: black;
+}
+.dropdown .dropdown-menu .dropdown-item:hover {
+  cursor: pointer;
+  color: white;
+  background-color: #0B5395;
+}
+.navbar-collapse .collapse .show {
+
+}
